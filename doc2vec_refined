@@ -1,0 +1,27 @@
+# Code Modularization and Function Documentation Example
+
+def download_and_extract_zip(url, zipname):
+    """Download and extract a ZIP file from a given URL."""
+    if not os.path.exists(zipname):
+        try:
+            req.urlretrieve(url, zipname)
+        except Exception as e:
+            print(f"Error downloading {url}: {e}")
+            return None
+    return zipfile.ZipFile(zipname, "r")
+
+def process_zip_file(zipfile):
+    """Process each text file within a ZIP file."""
+    for filename in zipfile.namelist():
+        if os.path.splitext(filename)[1] != ".txt":
+            continue
+        with zipfile.open(filename, "r") as file:
+            return file.read().decode("shift-jis")
+
+# Example Usage
+zip_url = "https://example.com/file.zip"
+zip_name = "file.zip"
+zip_file = download_and_extract_zip(zip_url, zip_name)
+if zip_file:
+    text_data = process_zip_file(zip_file)
+    # Further processing...
