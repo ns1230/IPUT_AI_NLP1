@@ -1,4 +1,5 @@
-****IPUT AI NLP1 - In-Class NLP Work****
+**IPUT AI NLP1 - In-Class NLP Work**
+
 This repository contains Python scripts developed for an introductory course on Natural Language Processing (NLP) using AI techniques.
 
 **Contents**
